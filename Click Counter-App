@@ -1,1 +1,64 @@
+import React, { useState } from 'react';
+
+function App() {
+  const [count, setCount] = useState(0);
+  const [message, setMessage] = useState('');
+
+  const increase = () => {
+    const newCount = count + 1;
+    setCount(newCount);
+    if (newCount === 50) {
+      setMessage('🎉 You reached 50!');
+    } else {
+      setMessage('');
+    }
+  };
+
+ };
+
+  const decrease = () => {
+    if (count > 0) {
+      const newCount = count - 1;
+      setCount(newCount);
+      setMessage('');
+    }
+  };
+
+  return (
+    <div style={styles.container}>
+      <h1>Click Counter</h1>
+      <p style={styles.count}>{count}</p>
+      {message && <p style={styles.message}>{message}</p>}
+      <div>
+        <button onClick={increase} style={styles.button}>Increase</button>
+        <button onClick={decrease} style={styles.button}>Decrease</button>
+      </div>
+    </div>
+  );
+
+
+const styles = {
+  container: {
+    textAlign: 'center',
+    marginTop: '50px',
+    fontFamily: 'Arial'
+  },
+  count: {
+    fontSize: '48px',
+    margin: '20px 0'
+  },
+  message: {
+    color: 'green',
+    fontWeight: 'bold'
+  },
+  button: {
+margin: '10px',
+    padding: '10px 20px',
+    fontSize: '16px',
+    cursor: 'pointer'
+  }
+};
+
+export default App;
+
 
